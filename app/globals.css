@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
+@theme {
+  /* Core palette — Retro Disco Sparkle on warm cream */
+  --color-night: #1a0b2e;
+  --color-midnight: #0f0620;
+  --color-velvet: #2d1b4e;
+  --color-plum: #1f1a17;
+  --color-hot-pink: #ff3ea5;
+  --color-disco-purple: #9b5de5;
+  --color-gold: #c9920a;
+  --color-gold-bright: #ffd23f;
+  --color-cyan: #00b8a9;
+  --color-cream: #fff8f2;
+  --color-surface: #fff0e8;
+  --color-blush: #ffb3d1;
+
+  /* Semantic defaults — light theme */
+  --color-background: #fff8f2;
+  --color-foreground: #1f1a17;
+
+  /* Typography */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gradient-disco: linear-gradient(135deg, #ff3ea5 0%, #9b5de5 50%, #00b8a9 100%);
+  --gradient-sunset: linear-gradient(135deg, #ffd23f 0%, #ff3ea5 100%);
+  --gradient-candlelight: linear-gradient(180deg, #2d1b4e 0%, #0f0620 100%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@utility text-gradient-disco {
+  background: var(--gradient-disco);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-sunset {
+  background: var(--gradient-sunset);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-disco {
+  background: var(--gradient-disco);
+}
+
+@utility bg-gradient-candlelight {
+  background: var(--gradient-candlelight);
+}
+
+@utility bg-grain {
+  background-image: radial-gradient(rgba(31,26,23, 0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* Rotating conic-gradient border ring — used on photo frames */
+.disco-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(from 0deg, #ff3ea5, #ffd23f, #00b8a9, #9b5de5, #ff3ea5);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0.8;
+  pointer-events: none;
+  animation: disco-ring-spin 12s linear infinite;
+}
+
+@keyframes disco-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Global music-toggle animation (avoids styled-jsx hydration issues) */
+.animate-music-spin {
+  animation: music-spin 6s linear infinite;
+}
+@keyframes music-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
