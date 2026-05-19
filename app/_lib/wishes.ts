@@ -76,7 +76,19 @@ export const bucketList: BucketItem[] = [
     emoji: "💌",
     title: "Write each other a letter every birthday",
     detail: "Starting today. Don't open early.",
-  }
+  },
+  {
+    id: "b8",
+    emoji: "🎙️",
+    title: "Start that podcast",
+    detail: "Even if it's not now - eventually.",
+  },
+  {
+    id: "b9",
+    emoji: "🎬",
+    title: "Do that movie night",
+    detail: "Preferably a themed one.",
+  },
 ];
 
 // Candles on the cake. Click each to light it. Blow them all out, make a wish.
