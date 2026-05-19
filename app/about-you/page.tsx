@@ -144,7 +144,7 @@ export default function AboutYou() {
             width: BOARD_W,
             height: BOARD_H,
             background:
-              "radial-gradient(circle at 20% 20%, rgba(255,210,63,0.18), transparent 60%), radial-gradient(circle at 80% 70%, rgba(255,179,209,0.25), transparent 60%), #F5E6D3",
+              "radial-gradient(circle at 20% 20%, rgba(255,210,63,0.45), transparent 65%), radial-gradient(circle at 80% 70%, rgba(255,179,209,0.5), transparent 65%), #F5E6D3",
             backgroundImage:
               "radial-gradient(rgba(120,80,30,0.08) 1px, transparent 1px)",
             backgroundSize: "12px 12px",

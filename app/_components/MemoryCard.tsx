@@ -8,7 +8,14 @@ import { ChipRenderer } from "./MemoryChips";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 function burst(accentHex: string) {
-  const colors = [accentHex, "#FFD23F", "#FFFFFF"];
+  const colors = [
+    accentHex,
+    "#1E6FFF",
+    "#4DA3FF",
+    "#7EC8FF",
+    "#FFD23F",
+    "#FFFFFF",
+  ];
   confetti({
     particleCount: 70,
     spread: 80,

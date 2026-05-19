@@ -31,7 +31,17 @@ export default function BirthdayCake() {
       spread: 120,
       startVelocity: 40,
       origin: { y: 0.55 },
-      colors: ["#FF3EA5", "#FFD23F", "#FFB3D1", "#9B5DE5", "#FFF8F2"],
+      colors: [
+        "#1E6FFF",
+        "#4DA3FF",
+        "#7EC8FF",
+        "#0047AB",
+        "#A8D8FF",
+        "#FF3EA5",
+        "#FFD23F",
+        "#FFB3D1",
+        "#FFF8F2",
+      ],
       scalar: 1,
     });
   };

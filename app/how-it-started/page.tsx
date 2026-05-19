@@ -28,7 +28,7 @@ export default function HowItStarted() {
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh]"
         style={{
           background:
-            "radial-gradient(ellipse at top, rgba(255,210,63,0.25) 0%, rgba(255,179,209,0.15) 35%, transparent 70%)",
+            "radial-gradient(ellipse at top, rgba(255,210,63,0.55) 0%, rgba(255,179,209,0.4) 35%, transparent 75%)",
         }}
       />
 

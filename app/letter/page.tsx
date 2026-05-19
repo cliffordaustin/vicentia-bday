@@ -56,7 +56,7 @@ export default function LetterPage() {
       spread: 50,
       startVelocity: 20,
       origin: { y: 0.45 },
-      colors: ["#FFD23F", "#FFB3D1", "#FFF4E6"],
+      colors: ["#4DA3FF", "#7EC8FF", "#1E6FFF", "#FFD23F", "#FFB3D1", "#FFF4E6"],
       scalar: 0.7,
       ticks: 120,
     });
@@ -73,7 +73,7 @@ export default function LetterPage() {
         className="pointer-events-none fixed inset-0 z-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(255,210,63,0.10) 0%, rgba(255,179,209,0.06) 40%, transparent 80%)",
+            "radial-gradient(ellipse at center, rgba(255,210,63,0.3) 0%, rgba(255,179,209,0.2) 40%, transparent 85%)",
         }}
       />
 
@@ -160,7 +160,7 @@ export default function LetterPage() {
                   className="pointer-events-none absolute inset-0"
                   style={{
                     background:
-                      "radial-gradient(ellipse at top, rgba(255,210,63,0.14) 0%, transparent 60%)",
+                      "radial-gradient(ellipse at top, rgba(255,210,63,0.32) 0%, transparent 65%)",
                   }}
                 />
 

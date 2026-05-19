@@ -33,7 +33,16 @@ export default function MemoryLane() {
   useEffect(() => {
     if (!allUnlocked || celebratedRef.current) return;
     celebratedRef.current = true;
-    const colors = ["#FF3EA5", "#FFD23F", "#00F5D4", "#9B5DE5", "#FFB3D1"];
+    const colors = [
+      "#1E6FFF",
+      "#4DA3FF",
+      "#7EC8FF",
+      "#0047AB",
+      "#A8D8FF",
+      "#FF3EA5",
+      "#FFD23F",
+      "#FFB3D1",
+    ];
     const fire = (delay: number, opts: confetti.Options) =>
       setTimeout(() => confetti({ colors, ...opts }), delay);
     fire(0, { particleCount: 120, spread: 100, origin: { y: 0.3 } });

@@ -60,12 +60,6 @@ export const bucketList: BucketItem[] = [
     detail: "Bonus points if the kitchen survives.",
   },
   {
-    id: "b4",
-    emoji: "🎢",
-    title: "Ride the scariest thing we can find",
-    detail: "Scream first, brag forever.",
-  },
-  {
     id: "b5",
     emoji: "📸",
     title: "Take a proper, framed photo together",
@@ -82,13 +76,7 @@ export const bucketList: BucketItem[] = [
     emoji: "💌",
     title: "Write each other a letter every birthday",
     detail: "Starting today. Don't open early.",
-  },
-  {
-    id: "b8",
-    emoji: "🎂",
-    title: "Throw the dumbest themed party imaginable",
-    detail: "Theme TBD. Commitment: total.",
-  },
+  }
 ];
 
 // Candles on the cake. Click each to light it. Blow them all out, make a wish.

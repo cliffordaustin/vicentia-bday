@@ -41,17 +41,9 @@ export const chapters: Chapter[] = [
     mood: "playful",
   },
   {
-    slug: "chaos",
-    path: "/chaos",
-    index: 4,
-    title: "Chaos & Funny Moments",
-    subtitle: "The questionable decisions hall of fame.",
-    mood: "loud",
-  },
-  {
     slug: "letter",
     path: "/letter",
-    index: 5,
+    index: 4,
     title: "A Letter to You",
     subtitle: "Read this slowly.",
     mood: "intimate",
@@ -59,7 +51,7 @@ export const chapters: Chapter[] = [
   {
     slug: "wishes",
     path: "/wishes",
-    index: 6,
+    index: 5,
     title: "Wishes & What's Next",
     subtitle: "Everything I want for you, and us.",
     mood: "hopeful",
@@ -67,7 +59,7 @@ export const chapters: Chapter[] = [
   {
     slug: "secret",
     path: "/secret",
-    index: 7,
+    index: 6,
     title: "One Last Thing",
     subtitle: "Shhh.",
     mood: "hushed",
