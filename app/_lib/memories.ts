@@ -160,7 +160,7 @@ export const memories: MemoryYear[] = [
       {
         type: "quote",
         text: "I've entered a lot of spaces 😂",
-        speaker: "her",
+        speaker: "You",
       },
       {
         type: "media",

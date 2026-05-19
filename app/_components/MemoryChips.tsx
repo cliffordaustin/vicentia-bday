@@ -137,6 +137,11 @@ function Lightbox({
     return () => { document.body.style.overflow = ""; };
   }, []);
 
+  // Make sure background music is restored if the lightbox closes mid-video.
+  useEffect(() => {
+    return () => { window.dispatchEvent(new Event("music:unduck")); };
+  }, []);
+
   return createPortal(
     <motion.div
       initial={{ opacity: 0 }}
@@ -184,6 +189,9 @@ function Lightbox({
                 controls
                 autoPlay
                 playsInline
+                onPlay={() => window.dispatchEvent(new Event("music:duck"))}
+                onPause={() => window.dispatchEvent(new Event("music:unduck"))}
+                onEnded={() => window.dispatchEvent(new Event("music:unduck"))}
                 className="max-h-[80vh] max-w-[90vw] rounded-xl object-contain shadow-2xl"
               />
             )}

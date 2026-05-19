@@ -3,23 +3,75 @@
 import { useEffect, useRef, useState } from "react";
 
 const TRACK_SRC = "/music/birthday-theme.mp3";
+const BASE_VOLUME = 0.4;
+const DUCKED_VOLUME = 0.05;
 
 export default function MusicToggle() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
+  const duckedRef = useRef(false);
 
   useEffect(() => {
     const audio = new Audio(TRACK_SRC);
     audio.loop = true;
-    audio.volume = 0.4;
+    audio.volume = BASE_VOLUME;
     audio.preload = "auto";
     audio.addEventListener("canplaythrough", () => setReady(true));
     audio.addEventListener("error", () => setReady(false));
+    audio.addEventListener("play", () => setPlaying(true));
+    audio.addEventListener("pause", () => setPlaying(false));
     audioRef.current = audio;
+
+    // Try to autoplay. Most browsers block this without a user gesture,
+    // so fall back to starting on the first interaction with the page.
+    const tryPlay = () => audio.play().catch(() => {});
+    tryPlay();
+
+    const startOnGesture = () => {
+      tryPlay();
+      window.removeEventListener("pointerdown", startOnGesture);
+      window.removeEventListener("keydown", startOnGesture);
+      window.removeEventListener("touchstart", startOnGesture);
+    };
+    window.addEventListener("pointerdown", startOnGesture, { once: true });
+    window.addEventListener("keydown", startOnGesture, { once: true });
+    window.addEventListener("touchstart", startOnGesture, { once: true });
+
+    // Ducking: lower the volume while a video is playing, restore after.
+    const onDuck = () => {
+      duckedRef.current = true;
+      audio.volume = DUCKED_VOLUME;
+    };
+    const onUnduck = () => {
+      duckedRef.current = false;
+      audio.volume = BASE_VOLUME;
+    };
+    window.addEventListener("music:duck", onDuck);
+    window.addEventListener("music:unduck", onUnduck);
+
+    // Full pause/resume - used when a page swaps in its own soundtrack.
+    let wasPlaying = false;
+    const onPause = () => {
+      wasPlaying = !audio.paused;
+      audio.pause();
+    };
+    const onResume = () => {
+      if (wasPlaying) audio.play().catch(() => {});
+    };
+    window.addEventListener("music:pause", onPause);
+    window.addEventListener("music:resume", onResume);
+
     return () => {
       audio.pause();
       audioRef.current = null;
+      window.removeEventListener("pointerdown", startOnGesture);
+      window.removeEventListener("keydown", startOnGesture);
+      window.removeEventListener("touchstart", startOnGesture);
+      window.removeEventListener("music:duck", onDuck);
+      window.removeEventListener("music:unduck", onUnduck);
+      window.removeEventListener("music:pause", onPause);
+      window.removeEventListener("music:resume", onResume);
     };
   }, []);
 
@@ -28,13 +80,11 @@ export default function MusicToggle() {
     if (!audio) return;
     if (playing) {
       audio.pause();
-      setPlaying(false);
     } else {
       try {
         await audio.play();
-        setPlaying(true);
       } catch {
-        setPlaying(false);
+        /* ignored */
       }
     }
   };

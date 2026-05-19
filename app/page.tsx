@@ -41,7 +41,7 @@ export default function Landing() {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 text-center overflow-hidden">
-      <FloatingBalloons />
+      <FloatingBalloons count={28} />
 
       <motion.div
         variants={container}

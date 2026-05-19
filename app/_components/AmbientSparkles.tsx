@@ -1,4 +1,4 @@
-const COLORS = ["#FFD23F", "#FF3EA5", "#9B5DE5", "#00B8A9"];
+const COLORS = ["#60A5FA", "#3B82F6", "#1D4ED8", "#7DD3FC", "#0EA5E9", "#A5B4FC"];
 
 // Deterministic pseudo-random so SSR and client render identically and we don't
 // need any effect / state. Seeded by index - same output every render.
