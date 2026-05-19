@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Core palette — Retro Disco Sparkle on warm cream */
+  /* Core palette - Retro Disco Sparkle on warm cream */
   --color-night: #1a0b2e;
   --color-midnight: #0f0620;
   --color-velvet: #2d1b4e;
@@ -15,7 +15,7 @@
   --color-surface: #fff0e8;
   --color-blush: #ffb3d1;
 
-  /* Semantic defaults — light theme */
+  /* Semantic defaults - light theme */
   --color-background: #fff8f2;
   --color-foreground: #1f1a17;
 
@@ -66,7 +66,7 @@ body {
   background-size: 3px 3px;
 }
 
-/* Rotating conic-gradient border ring — used on photo frames */
+/* Rotating conic-gradient border ring - used on photo frames */
 .disco-ring {
   position: absolute;
   inset: -2px;

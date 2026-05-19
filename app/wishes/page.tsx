@@ -55,7 +55,7 @@ export default function Wishes() {
           Wishes &amp; What&apos;s Next
         </motion.h1>
         <motion.p variants={fadeUp} className="max-w-xl text-plum/70">
-          Everything I&apos;m hoping for you this year — and a list of the
+          Everything I&apos;m hoping for you this year - and a list of the
           ridiculous things we still owe each other.
         </motion.p>
       </motion.header>
@@ -149,7 +149,7 @@ export default function Wishes() {
           variants={fadeUp}
           className="mt-3 text-center font-hand text-xl text-hot-pink"
         >
-          tick them off together — no rush, but kinda rush
+          tick them off together - no rush, but kinda rush
         </motion.p>
         <motion.p
           variants={fadeUp}

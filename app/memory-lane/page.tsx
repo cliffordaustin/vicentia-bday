@@ -27,7 +27,7 @@ export default function MemoryLane() {
   });
   const spineHeight = useTransform(spineFill, [0, 1], ["0%", "100%"]);
 
-  // 100% celebration — fire a giant confetti burst once, the first time the
+  // 100% celebration - fire a giant confetti burst once, the first time the
   // user hits a complete state during this session.
   const celebratedRef = useRef(false);
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function MemoryLane() {
         </h1>
         <p className="max-w-xl text-plum/70">
           Every card is a year. Every year is locked until you open it. Some
-          memories are loud, some are quiet — pick any one to start.
+          memories are loud, some are quiet - pick any one to start.
         </p>
       </motion.header>
 
@@ -102,12 +102,12 @@ export default function MemoryLane() {
 
       {/* Timeline */}
       <div ref={spineRef} className="relative mt-20 w-full max-w-5xl">
-        {/* Spine — base line */}
+        {/* Spine - base line */}
         <span
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-plum/10 md:block"
         />
-        {/* Spine — animated fill */}
+        {/* Spine - animated fill */}
         <motion.span
           aria-hidden
           style={{ height: spineHeight }}
@@ -135,27 +135,6 @@ export default function MemoryLane() {
           ))}
         </div>
       </div>
-
-      {/* 100% reward */}
-      {allUnlocked && (
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, ease: EASE }}
-          className="relative mt-24 w-full max-w-2xl overflow-hidden rounded-3xl border border-gold/40 bg-linear-to-br from-surface via-cream to-blush/40 p-10 text-center shadow-[0_30px_60px_-20px_rgba(255,62,165,0.3)]"
-        >
-          <p className="text-xs uppercase tracking-[0.4em] text-plum/60">
-            ★ achievement unlocked ★
-          </p>
-          <h2 className="mt-4 font-display text-4xl italic text-plum sm:text-5xl">
-            All memories recovered
-          </h2>
-          <p className="mx-auto mt-6 max-w-md font-hand text-2xl leading-snug text-plum">
-            Every single one of these belongs to us. Nobody else has these. No
-            matter what comes — that&apos;s the part that stays.
-          </p>
-        </motion.div>
-      )}
 
       <div className="mt-24 w-full max-w-3xl">
         <ChapterNav slug="memory-lane" />

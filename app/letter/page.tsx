@@ -67,7 +67,7 @@ export default function LetterPage() {
 
   return (
     <section className="relative flex-1 flex flex-col items-center px-6 py-24">
-      {/* Warm candlelight glow — gentle on a light theme */}
+      {/* Warm candlelight glow - gentle on a light theme */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 z-0"
@@ -95,7 +95,7 @@ export default function LetterPage() {
           </p>
         </motion.header>
 
-        {/* Envelope — collapses out of the layout once opened */}
+        {/* Envelope - collapses out of the layout once opened */}
         <AnimatePresence>
           {!opened && (
             <motion.div

@@ -54,10 +54,10 @@ export default function Landing() {
           variants={item}
           className="font-[family-name:var(--font-hand)] text-2xl text-plum/70 sm:text-3xl"
         >
-          Today, the world celebrates you.
+          Today I celebrate you
         </motion.p>
 
-        {/* Name — per-letter staggered drop, all plum */}
+        {/* Name - per-letter staggered drop, all plum */}
         <motion.h1
           variants={container}
           className="font-[family-name:var(--font-display)] text-7xl font-bold italic leading-[0.9] text-plum sm:text-9xl md:text-[10rem]"
@@ -89,12 +89,12 @@ export default function Landing() {
           variants={item}
           className="max-w-xl text-base leading-relaxed text-plum/75 sm:text-lg"
         >
-          From strangers to sisters — this is our story. Every page that follows
-          is a little piece of us. Take your time. Smile when you need to. Cry
-          if it sneaks up on you. It&apos;s all for you.
+          From strangers to sisters - this is our story (literally!). Every page
+          that follows is a little piece of us. Take your time. Smile when you
+          need to. Cry if it sneaks up on you. It&apos;s all for you.
         </motion.p>
 
-        {/* CTA — hot pink pop */}
+        {/* CTA - hot pink pop */}
         <motion.div variants={item} className="pt-2">
           <Link
             href={next.path}

@@ -59,7 +59,7 @@ export default function Chaos() {
         className="mt-10 flex items-center gap-3 rounded-full border-2 border-dashed border-hot-pink/50 bg-blush/20 px-5 py-2 text-xs uppercase tracking-[0.3em] text-plum/60"
       >
         <span>⚠</span>
-        <span>cringe ahead — proceed with affection</span>
+        <span>cringe ahead - proceed with affection</span>
         <span>⚠</span>
       </motion.div>
 
@@ -133,7 +133,7 @@ export default function Chaos() {
         </ol>
       </section>
 
-      {/* EVIDENCE ROOM — polaroids with stamps */}
+      {/* EVIDENCE ROOM - polaroids with stamps */}
       <section className="mt-32 w-full max-w-6xl">
         <h2 className="text-center font-display text-3xl italic tracking-[0.2em] text-plum sm:text-4xl">
           THE EVIDENCE
@@ -195,7 +195,7 @@ export default function Chaos() {
         </div>
       </section>
 
-      {/* RECEIPTS — chat screenshots */}
+      {/* RECEIPTS - chat screenshots */}
       <section className="mt-32 w-full max-w-6xl">
         <h2 className="text-center font-display text-3xl italic tracking-[0.2em] text-plum sm:text-4xl">
           THE RECEIPTS
@@ -211,7 +211,7 @@ export default function Chaos() {
         </div>
       </section>
 
-      {/* GREATEST HITS — quotes */}
+      {/* GREATEST HITS - quotes */}
       <section className="mt-32 w-full max-w-4xl">
         <h2 className="text-center font-display text-3xl italic tracking-[0.2em] text-plum sm:text-4xl">
           GREATEST HITS

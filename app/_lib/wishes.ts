@@ -1,5 +1,5 @@
 // Birthday wishes & future chapter data.
-// Edit freely — types keep everything in sync.
+// Edit freely - types keep everything in sync.
 
 export type Wish = { id: string; text: string };
 
@@ -16,7 +16,7 @@ export type CakeCandle = { id: string };
 export const wishes: Wish[] = [
   {
     id: "w1",
-    text: "May your year feel softer than the last — kinder mornings, lighter shoulders.",
+    text: "May your year feel softer than the last - kinder mornings, lighter shoulders.",
   },
   {
     id: "w2",
@@ -44,7 +44,7 @@ export const bucketList: BucketItem[] = [
   {
     id: "b1",
     emoji: "✈️",
-    title: "A trip — somewhere we've never been",
+    title: "A trip - somewhere we've never been",
     detail: "No itinerary, just vibes and a return flight.",
   },
   {
@@ -92,7 +92,7 @@ export const bucketList: BucketItem[] = [
 ];
 
 // Candles on the cake. Click each to light it. Blow them all out, make a wish.
-// The wish itself is hers — we don't get to know it.
+// The wish itself is hers - we don't get to know it.
 export const candles: CakeCandle[] = [
   { id: "c1" },
   { id: "c2" },

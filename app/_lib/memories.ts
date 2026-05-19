@@ -1,130 +1,171 @@
-// Memory Lane data. Each "year" is a memory card the user can unlock.
-// Mix and match content types — leave fields empty/undefined if not used.
-// TODO: replace every placeholder with real content.
+export type MediaItem = { src: string; kind: "image" | "video" };
 
 export type MemoryChip =
-  | { type: "photo"; src: string | null; caption: string }
-  | { type: "quote"; text: string; speaker?: string }
-  | { type: "song"; title: string; artist: string; url?: string }
-  | { type: "joke"; text: string }
   | { type: "story"; title?: string; body: string }
+  | { type: "quote"; text: string; speaker?: string }
+  | { type: "joke"; text: string }
+  | { type: "media"; items: MediaItem[]; caption?: string }
   | { type: "voice"; src: string; label: string };
 
 export type MemoryYear = {
-  id: string; // unique key, used in localStorage
-  year: string; // displayed label, e.g. "2010" or "Year One"
-  era: string; // short tagline, e.g. "the beginning"
-  accent: "pink" | "purple" | "cyan" | "gold"; // color theme for this year
-  teaser: string; // shown while locked — keep cryptic / inviting
+  id: string;
+  year: string;
+  era: string;
+  accent: "pink" | "purple" | "cyan" | "gold";
+  teaser: string;
   chips: MemoryChip[];
 };
 
 export const memories: MemoryYear[] = [
   {
-    id: "y1",
-    year: "2010",
-    era: "the beginning",
+    id: "y2014",
+    year: "2014",
+    era: "The beginning",
     accent: "pink",
-    teaser: "Two strangers. One ordinary day. Tap to remember.",
+    teaser: "The friend group that slowly became just us two. Tap to remember.",
+    chips: [
+      {
+        type: "story",
+        title: "How it went",
+        body: "It's a bit blurry - we were always in a friend group, and somehow only you and I remained. Despite the \"best friends\" we had then.",
+      },
+      {
+        type: "story",
+        body: "We're more than friends - we're family.",
+      },
+      { type: "joke", text: "mcvjj daoqt" },
+      {
+        type: "media",
+        items: [{ src: "/images/2014.jpg", kind: "image" }],
+        caption: "first and last",
+      },
+    ],
+  },
+  {
+    id: "y2015",
+    year: "2015",
+    era: "Becoming inseparable",
+    accent: "purple",
+    teaser: "The year you stopped being optional. Tap to remember.",
+    chips: [
+      {
+        type: "story",
+        title: "The plan that never succeeded",
+        body: "We planned to have our parents meet and agree on renting the apartment at your place so we could stay together.",
+      },
+      {
+        type: "story",
+        body: "It was around that same time that we found out we were long distant cousins - but who cares, we're sisters!",
+      },
+      { type: "joke", text: "obviously that didn't work out" },
+      {
+        type: "media",
+        items: [
+          { src: "/images/2015_1.jpg", kind: "image" },
+          { src: "/images/2015_2.jpg", kind: "image" },
+        ],
+        caption: "wish it happened",
+      },
+    ],
+  },
+  {
+    id: "y2017",
+    year: "2017",
+    era: "Feelings in the way",
+    accent: "gold",
+    teaser: "Bigger feelings. Worse decisions. Better memories. Tap to remember.",
+    chips: [
+      {
+        type: "story",
+        title: "The hardest question",
+        body: "The year you asked me to choose between you and Richard, and I couldn't. It was a tough time for me - and I'm sure it was the same for you, having to watch me go through that.",
+      },
+      { type: "quote", text: "It's either me or Richard, choose one." },
+      {
+        type: "story",
+        body: "Obviously I chose you in the end ;^",
+      },
+      {
+        type: "media",
+        items: [{ src: "/images/2017.jpg", kind: "image" }],
+      },
+    ],
+  },
+  {
+    id: "y2019",
+    year: "2019ish",
+    era: "The distance year",
+    accent: "cyan",
+    teaser: "Different sentiments, same person. Tap to remember.",
     chips: [
       {
         type: "story",
         title: "How it really went",
-        body: "TODO — the actual first day. The walk home. The text you sent your mom about her.",
+        body: "This was one difficult year - we stopped talking to each other for some months over a simple misunderstanding.",
       },
-      { type: "quote", text: "Wait, you actually showed up?", speaker: "her" },
-      {
-        type: "song",
-        title: "TODO song",
-        artist: "TODO artist",
-      },
-      { type: "joke", text: "the green hoodie incident" },
-      { type: "photo", src: null, caption: "first ever" },
-    ],
-  },
-  {
-    id: "y2",
-    year: "2011",
-    era: "becoming inseparable",
-    accent: "purple",
-    teaser: "The year you stopped being optional.",
-    chips: [
       {
         type: "story",
-        body: "TODO — the trip / sleepover / project that sealed it.",
+        body: "But ofc you can't live without me though - you moved in with me briefly along the line.",
       },
-      { type: "quote", text: "TODO — something she said that you never forgot." },
-      { type: "song", title: "TODO", artist: "TODO" },
-      { type: "joke", text: "TODO inside joke #2" },
-      { type: "photo", src: null, caption: "matching everything" },
-    ],
-  },
-  {
-    id: "y3",
-    year: "2013",
-    era: "growing up loud",
-    accent: "gold",
-    teaser: "Bigger feelings. Worse decisions. Better memories.",
-    chips: [
       {
         type: "story",
-        body: "TODO — a story about a hard year you got through together.",
+        body: "We were the biggest jokesters thinking we could even try to hate each other.",
       },
-      { type: "quote", text: "TODO" },
-      { type: "joke", text: "TODO" },
-      { type: "photo", src: null, caption: "questionable era" },
-      { type: "song", title: "TODO", artist: "TODO" },
-    ],
-  },
-  {
-    id: "y4",
-    year: "2016",
-    era: "the distance year",
-    accent: "cyan",
-    teaser: "Different cities, same person.",
-    chips: [
       {
-        type: "story",
-        body: "TODO — long-distance, late-night calls, the visit.",
+        type: "media",
+        items: [
+          { src: "/images/2019_1.MP4", kind: "video" },
+          { src: "/images/2019_2.MP4", kind: "video" },
+          { src: "/images/2019_3.MP4", kind: "video" },
+        ],
       },
-      { type: "quote", text: "TODO" },
-      { type: "joke", text: "TODO" },
-      { type: "photo", src: null, caption: "the reunion" },
-      { type: "song", title: "TODO", artist: "TODO" },
     ],
   },
   {
-    id: "y5",
-    year: "2020",
-    era: "we made it",
+    id: "y2023",
+    year: "2023",
+    era: "We made it",
     accent: "pink",
-    teaser: "The world fell apart. We didn't.",
+    teaser: "The finish line. Messy, but real. Tap to remember.",
     chips: [
       {
         type: "story",
-        body: "TODO — pandemic / a defining moment / something that proved it.",
+        body: "We made it through uni - the ending wasn't the smoothest, but we still made it.",
       },
-      { type: "quote", text: "TODO" },
-      { type: "joke", text: "TODO" },
-      { type: "photo", src: null, caption: "still us" },
-      { type: "song", title: "TODO", artist: "TODO" },
+      {
+        type: "story",
+        body: "There was nothing to laugh about honestly 🤣",
+      },
+      {
+        type: "media",
+        items: [{ src: "/images/2023.jpg", kind: "image" }],
+      },
     ],
   },
   {
-    id: "y6",
-    year: "now",
-    era: "and here we are",
+    id: "ynow",
+    year: "Now",
+    era: "And here we are",
     accent: "gold",
-    teaser: "Everything we are right now. Everything we'll be.",
+    teaser: "Stronger, better and grounded. Everything we are right now. Tap to see.",
     chips: [
       {
         type: "story",
-        body: "TODO — where things stand. The version of her you love today.",
+        body: "Stronger, better and grounded. I love the version of you that you are today.",
       },
-      { type: "quote", text: "TODO" },
-      { type: "joke", text: "TODO" },
-      { type: "photo", src: null, caption: "today" },
-      { type: "song", title: "TODO", artist: "TODO" },
+      {
+        type: "story",
+        body: "I'm proud of the woman you've become.",
+      },
+      {
+        type: "quote",
+        text: "I've entered a lot of spaces 😂",
+        speaker: "her",
+      },
+      {
+        type: "media",
+        items: [{ src: "/images/now.MP4", kind: "video" }],
+      },
     ],
   },
 ];

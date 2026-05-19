@@ -1,5 +1,5 @@
 // Sticky notes for "Things I Love About You".
-// Add as many as you want — the board scales. Pick a category for color.
+// Add as many as you want - the board scales. Pick a category for color.
 // TODO: replace these with real things you appreciate.
 
 export type LoveCategory =
@@ -44,7 +44,7 @@ export const categoryMeta: Record<
     pin: "#FF3EA5",
   },
   strength: {
-    label: "strength",
+    label: "strengths",
     bg: "#9B5DE5",
     text: "#FFFFFF",
     pin: "#FFD23F",
@@ -52,28 +52,28 @@ export const categoryMeta: Record<
 };
 
 export const loveNotes: LoveNote[] = [
-  { id: "n1", category: "kindness", text: "You always answer my calls." },
-  { id: "n2", category: "kindness", text: "You remember things I forgot I told you." },
-  { id: "n3", category: "kindness", text: "You check in even when I pretend I'm fine." },
-  { id: "n4", category: "kindness", text: "You're soft about the things I'm hard about." },
+  { id: "n1", category: "kindness", text: "You care about people around you like you care about yourself." },
+  { id: "n2", category: "kindness", text: "You always want to get something for everyone you know - whether they deserve it or not 😒" },
+  { id: "n3", category: "kindness", text: "You go all out for the people you love." },
+  { id: "n4", category: "kindness", text: "You remember things I forgot I told you." },
 
-  { id: "n5", category: "chaos", text: "You make ordinary days fun." },
-  { id: "n6", category: "chaos", text: "You'll say yes to the dumbest plan if I ask." },
-  { id: "n7", category: "chaos", text: "You text me at 2am with the worst ideas." },
-  { id: "n8", category: "chaos", text: "You once made me laugh so hard I couldn't breathe." },
+  { id: "n5", category: "chaos", text: "Has been going to the gym for about 3 years now - in your dreams obviously." },
+  { id: "n6", category: "chaos", text: "Our podcast has some of the highest views on record - 🫩 would have been nice." },
+  { id: "n7", category: "chaos", text: "You share experiences so detailed, sometimes it's sooo cringe." },
+  { id: "n8", category: "chaos", text: "Walking around the house naked might be your favourite sport." },
+  { id: "n9", category: "chaos", text: "You'll say yes to the dumbest plan to get back at someone if I asked." },
 
-  { id: "n9", category: "loyalty", text: "You stayed." },
-  { id: "n10", category: "loyalty", text: "You never made me explain why I was upset." },
-  { id: "n11", category: "loyalty", text: "You take my side even when I'm wrong." },
-  { id: "n12", category: "loyalty", text: "You'd lie under oath for me. (probably already have.)" },
+  { id: "n10", category: "loyalty", text: "You always take my side even when I'm wrong." },
+  { id: "n11", category: "loyalty", text: "You'll lie under oath for me (probably already have)." },
+  { id: "n12", category: "loyalty", text: "You stayed." },
+  { id: "n13", category: "loyalty", text: "You never made me feel judged." },
+  { id: "n14", category: "loyalty", text: "You were always patient enough to allow me to process whatever I was dealing with before opening up." },
 
-  { id: "n13", category: "humor", text: "Your impressions of me are scarily accurate." },
-  { id: "n14", category: "humor", text: "You laugh at your own jokes louder than anyone." },
-  { id: "n15", category: "humor", text: "You have a face you only make at me." },
-  { id: "n16", category: "humor", text: "Your group chat name ideas are unmatched." },
+  { id: "n15", category: "humor", text: "You say the funniest things in your narrations." },
+  { id: "n16", category: "humor", text: "You have some of the silliest ideas ever." },
 
-  { id: "n17", category: "strength", text: "You kept going when I couldn't." },
-  { id: "n18", category: "strength", text: "You feel everything fully — and still get up." },
-  { id: "n19", category: "strength", text: "You're soft and steel at the same time." },
-  { id: "n20", category: "strength", text: "You don't shrink for anyone." },
+  { id: "n17", category: "strength", text: "You're soft and steel at the same time." },
+  { id: "n18", category: "strength", text: "You are one of the most strong-willed people I know." },
+  { id: "n19", category: "strength", text: "You have a way of absorbing pain and turning it into strength." },
+  { id: "n20", category: "strength", text: "When you set your mind and heart on something, you see it through." },
 ];

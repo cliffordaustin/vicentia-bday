@@ -6,7 +6,7 @@ function hash(n: number, seed: number) {
 }
 
 export default function FloatingBalloons({ count = 14 }: { count?: number }) {
-  // Round all numeric style values — long floats serialize differently
+  // Round all numeric style values - long floats serialize differently
   // between Next's SSR and the client and cause hydration mismatches.
   const r2 = (n: number) => n.toFixed(2);
   const balloons = Array.from({ length: count }, (_, i) => ({

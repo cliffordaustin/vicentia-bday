@@ -22,7 +22,7 @@ const polaroidTilts = ["-rotate-3", "rotate-2", "-rotate-1"];
 export default function HowItStarted() {
   return (
     <section className="relative flex-1 flex flex-col items-center px-6 py-24">
-      {/* Warm candlelight glow — replaces disco intensity for this chapter */}
+      {/* Warm candlelight glow - replaces disco intensity for this chapter */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60vh]"
@@ -119,7 +119,7 @@ export default function HowItStarted() {
         </motion.div>
       </section>
 
-      {/* Photo strip — polaroids */}
+      {/* Photo strip - polaroids */}
       <section className="mt-24 w-full max-w-5xl">
         <motion.h2
           initial="hidden"

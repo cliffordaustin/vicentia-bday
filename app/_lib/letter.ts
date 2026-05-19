@@ -13,7 +13,7 @@ export type LetterParagraph = {
 
 export type LetterSection = {
   paragraphs: LetterParagraph[];
-  // An optional pull-quote drawn from this section — appears as a large
+  // An optional pull-quote drawn from this section - appears as a large
   // handwritten flourish between paragraphs.
   pullQuote?: string;
 };
@@ -34,34 +34,34 @@ export const letter = {
       paragraphs: [
         {
           body: [
-            { type: "text", body: "TODO — start with the truth. Before I knew you, " },
+            { type: "text", body: "TODO - start with the truth. Before I knew you, " },
             { type: "highlight", body: "I was someone slightly different" },
             { type: "text", body: ". Name one specific way you became part of who I am now. Be honest. Don't dress it up." },
           ],
         },
         {
           body:
-            "TODO — write about a moment I genuinely needed you. The version of me that called you at the worst time. What you said. What you didn't say. The fact that you stayed on the line.",
+            "TODO - write about a moment I genuinely needed you. The version of me that called you at the worst time. What you said. What you didn't say. The fact that you stayed on the line.",
         },
       ],
     },
     {
-      pullQuote: "TODO: another line — even shorter, even quieter.",
+      pullQuote: "TODO: another line - even shorter, even quieter.",
       paragraphs: [
         {
           body: [
-            { type: "text", body: "TODO — three things I admire about you that aren't compliments anyone else would think to give you. The way you do small things. The way you handle people who don't deserve you. " },
+            { type: "text", body: "TODO - three things I admire about you that aren't compliments anyone else would think to give you. The way you do small things. The way you handle people who don't deserve you. " },
             { type: "highlight", body: "The thing about you nobody else sees" },
             { type: "text", body: "." },
           ],
         },
         {
           body:
-            "TODO — what I want for you this year and beyond. Specific. Not generic. The dream I know you'd never say out loud. The version of yourself I already see waiting for you.",
+            "TODO - what I want for you this year and beyond. Specific. Not generic. The dream I know you'd never say out loud. The version of yourself I already see waiting for you.",
         },
         {
           body:
-            "TODO — one final line. Something only the two of us would understand. Or something so plain it lands like a punch.",
+            "TODO - one final line. Something only the two of us would understand. Or something so plain it lands like a punch.",
         },
       ],
     },
@@ -70,7 +70,7 @@ export const letter = {
   signoff: "Always yours,",
   sender: "TODO: your name",
   postscript:
-    "TODO: a tiny P.S. — an inside joke, a song title, or a date that means something. Keep it small.",
+    "TODO: a tiny P.S. - an inside joke, a song title, or a date that means something. Keep it small.",
 
   // Optional clipped photo. Set to null to hide.
   clippedPhoto: {

@@ -14,67 +14,67 @@ export const topChaos: ChaosEntry[] = [
     title: "TODO: The Worst Idea We Ever Followed Through On",
     oneLiner: "It involved a 2am drive, questionable judgment, and at least one tear.",
     story:
-      "TODO — the full unhinged story. Where it started, who suggested it, what we promised never to tell anyone. The fact that you're reading this means the statute of limitations is over.",
+      "TODO - the full unhinged story. Where it started, who suggested it, what we promised never to tell anyone. The fact that you're reading this means the statute of limitations is over.",
   },
   {
     id: "c2",
     title: "TODO: The Time We Almost Got Banned From [Place]",
     oneLiner: "We didn't even mean to. That's what makes it worse.",
     story:
-      "TODO — set the scene, describe the escalation, end on the line one of us said to the other while running away.",
+      "TODO - set the scene, describe the escalation, end on the line one of us said to the other while running away.",
   },
   {
     id: "c3",
     title: "TODO: The Outfit Decision History Will Not Forgive",
     oneLiner: "Both of us. At the same time. By choice.",
     story:
-      "TODO — what we were wearing, what we thought it said about us, what it actually said. The photo evidence is below.",
+      "TODO - what we were wearing, what we thought it said about us, what it actually said. The photo evidence is below.",
   },
   {
     id: "c4",
     title: "TODO: The Group Chat Incident",
     oneLiner: "Wrong chat. Right message. Catastrophic results.",
-    story: "TODO — name the chat, the message, the silence that followed.",
+    story: "TODO - name the chat, the message, the silence that followed.",
   },
   {
     id: "c5",
     title: "TODO: The Phase",
     oneLiner: "We pretend it didn't happen. It happened.",
     story:
-      "TODO — what we were obsessed with. What we made each other do. The aesthetic. The shame. The fondness, eventually.",
+      "TODO - what we were obsessed with. What we made each other do. The aesthetic. The shame. The fondness, eventually.",
   },
   {
     id: "c6",
     title: "TODO: The Argument About Something So Stupid",
     oneLiner: "I still think I was right.",
-    story: "TODO — what the fight was about, who won (it was me).",
+    story: "TODO - what the fight was about, who won (it was me).",
   },
   {
     id: "c7",
     title: "TODO: The Crush We Both Hated In Hindsight",
     oneLiner: "You knew. I knew. We both pretended we didn't know.",
     story:
-      "TODO — initials only, please. The signs we ignored. The vindication when it finally fell apart.",
+      "TODO - initials only, please. The signs we ignored. The vindication when it finally fell apart.",
   },
   {
     id: "c8",
     title: "TODO: The Night Nobody Believes Actually Happened",
     oneLiner: "There's no photo. There's no video. There's just us.",
-    story: "TODO — keep it cryptic. We know.",
+    story: "TODO - keep it cryptic. We know.",
   },
   {
     id: "c9",
     title: "TODO: The Time We Cried Laughing In Public",
     oneLiner: "People stared. We couldn't stop. The waiter gave up.",
     story:
-      "TODO — what set us off, why we couldn't recover, the look the manager gave us.",
+      "TODO - what set us off, why we couldn't recover, the look the manager gave us.",
   },
   {
     id: "c10",
     title: "TODO: The Pact",
     oneLiner: "We swore on something. We may have meant it.",
     story:
-      "TODO — what we promised each other we'd do by 30, and how that's going.",
+      "TODO - what we promised each other we'd do by 30, and how that's going.",
   },
 ];
 

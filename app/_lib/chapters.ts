@@ -13,7 +13,7 @@ export const chapters: Chapter[] = [
     path: "/",
     index: 0,
     title: "Happy Birthday",
-    subtitle: "From strangers to sisters — this is our story.",
+    subtitle: "From strangers to sisters - this is our story.",
     mood: "dazzling",
   },
   {

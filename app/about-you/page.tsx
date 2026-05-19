@@ -20,7 +20,7 @@ const CATEGORIES: LoveCategory[] = [
   "strength",
 ];
 
-// Deterministic pseudo-random — keeps SSR/CSR markup identical.
+// Deterministic pseudo-random - keeps SSR/CSR markup identical.
 function hash(n: number, seed: number) {
   const x = Math.sin(n * 9301 + seed * 49297) * 233280;
   return x - Math.floor(x);

@@ -24,7 +24,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: "Happy Birthday, Vicentia",
-  description: "From strangers to sisters — this is our story.",
+  description: "From strangers to sisters - this is our story.",
 };
 
 export default function RootLayout({
