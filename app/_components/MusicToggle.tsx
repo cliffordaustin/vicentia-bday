@@ -25,7 +25,13 @@ export default function MusicToggle() {
 
     // Try to autoplay. Most browsers block this without a user gesture,
     // so fall back to starting on the first interaction with the page.
-    const tryPlay = () => audio.play().catch(() => {});
+    // `suppressed` is flipped by pages that swap in their own soundtrack
+    // (e.g. the final chapter) to prevent overlap on refresh.
+    let suppressed = false;
+    const tryPlay = () => {
+      if (suppressed) return;
+      audio.play().catch(() => {});
+    };
     tryPlay();
 
     const startOnGesture = () => {
@@ -51,13 +57,13 @@ export default function MusicToggle() {
     window.addEventListener("music:unduck", onUnduck);
 
     // Full pause/resume - used when a page swaps in its own soundtrack.
-    let wasPlaying = false;
     const onPause = () => {
-      wasPlaying = !audio.paused;
+      suppressed = true;
       audio.pause();
     };
     const onResume = () => {
-      if (wasPlaying) audio.play().catch(() => {});
+      suppressed = false;
+      audio.play().catch(() => {});
     };
     window.addEventListener("music:pause", onPause);
     window.addEventListener("music:resume", onResume);

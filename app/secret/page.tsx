@@ -73,18 +73,36 @@ function useFinalSoundtrack() {
     audio.volume = 0.45;
     audio.preload = "auto";
 
-    const tryPlay = () => audio.play().catch(() => {});
-    tryPlay();
+    let unmounted = false;
 
-    const startOnGesture = () => {
-      tryPlay();
-      window.removeEventListener("pointerdown", startOnGesture);
-      window.removeEventListener("keydown", startOnGesture);
-      window.removeEventListener("touchstart", startOnGesture);
+    const tryPlay = () => {
+      if (unmounted) return;
+      audio.play()
+        .then(() => {
+          // success - tear down the gesture fallback
+          removeGesture();
+        })
+        .catch(() => {
+          /* blocked; gesture listener will retry */
+        });
     };
-    window.addEventListener("pointerdown", startOnGesture, { once: true });
-    window.addEventListener("keydown", startOnGesture, { once: true });
-    window.addEventListener("touchstart", startOnGesture, { once: true });
+
+    // Attempt immediately, and again once the file is buffered enough.
+    tryPlay();
+    audio.addEventListener("canplay", tryPlay);
+
+    // Gesture fallback: keep listening until play() actually succeeds.
+    const onGesture = () => tryPlay();
+    const removeGesture = () => {
+      window.removeEventListener("pointerdown", onGesture);
+      window.removeEventListener("keydown", onGesture);
+      window.removeEventListener("touchstart", onGesture);
+      window.removeEventListener("click", onGesture);
+    };
+    window.addEventListener("pointerdown", onGesture);
+    window.addEventListener("keydown", onGesture);
+    window.addEventListener("touchstart", onGesture);
+    window.addEventListener("click", onGesture);
 
     const onDuck = () => { audio.volume = 0.08; };
     const onUnduck = () => { audio.volume = 0.45; };
@@ -92,10 +110,10 @@ function useFinalSoundtrack() {
     window.addEventListener("music:unduck", onUnduck);
 
     return () => {
+      unmounted = true;
       audio.pause();
-      window.removeEventListener("pointerdown", startOnGesture);
-      window.removeEventListener("keydown", startOnGesture);
-      window.removeEventListener("touchstart", startOnGesture);
+      audio.removeEventListener("canplay", tryPlay);
+      removeGesture();
       window.removeEventListener("music:duck", onDuck);
       window.removeEventListener("music:unduck", onUnduck);
       window.dispatchEvent(new Event("music:resume"));
@@ -312,13 +330,13 @@ function CreditsRoll() {
 
 const CREDITS = [
   { role: "Starring", name: "Vicentia" },
-  { role: "Co-starring", name: "Me, lucky to be here" },
+  { role: "Co-starring", name: "Awura, happy to be here" },
   { role: "Original score by", name: "every inside joke we ever made" },
   { role: "Directed by", name: "the years" },
-  { role: "Produced by", name: "every late-night call" },
+  { role: "Produced by", name: "Every long conversation" },
   { role: "Costume design", name: "whatever you decided that morning" },
   { role: "Special thanks", name: "to whoever sat us together first" },
-  { role: "Filmed on location", name: "wherever you were" },
+  { role: "Filmed on location", name: "Wherever you are" },
 ];
 
 function TheEnd() {
