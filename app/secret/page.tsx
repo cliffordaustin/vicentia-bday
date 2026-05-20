@@ -232,16 +232,16 @@ function PolaroidWall({
 }
 
 const POLAROID_CAPTIONS = [
-  "Last page",
   "A cringe one",
+  "Those eyes",
   "Pretty girly",
-  "Same",
+  "❤️",
   "Cute girl era",
   "Glow skin era",
   "8 years old again",
   "Brownie 😫",
   "Who's that girl?",
-  "Same",
+  "❤️",
   "Blurry",
   "Okay… 🤣",
   "Urm..",
@@ -366,7 +366,8 @@ function TheEnd() {
         </p>
 
         <p className="mt-6 font-hand text-xl text-hot-pink">
-          happy birthday, again. ♡
+          happy birthday, again. <br />
+          I love you. ♡
         </p>
 
         <p className="mt-12 text-[10px] uppercase tracking-[0.5em] text-plum/30">
