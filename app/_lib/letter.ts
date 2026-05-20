@@ -1,5 +1,4 @@
 // The letter. Decorated stationery, multi-section, intimate.
-// Replace every TODO with real words. Mark phrases for emphasis with { mark: "..." }.
 
 export type LetterSegment =
   | { type: "text"; body: string }
@@ -21,60 +20,107 @@ export type LetterSection = {
 export const letter = {
   envelope: {
     to: "Vicentia",
-    from: "TODO: your name",
+    from: "Constance",
     sealInitial: "V",
   },
 
   greeting: "Dear Vicentia,",
 
-  // Letter unfolds page by page. Each section can have a pull-quote.
   sections: [
     {
-      pullQuote: "TODO: a single line that means everything.",
       paragraphs: [
         {
           body: [
-            { type: "text", body: "TODO - start with the truth. Before I knew you, " },
-            { type: "highlight", body: "I was someone slightly different" },
-            { type: "text", body: ". Name one specific way you became part of who I am now. Be honest. Don't dress it up." },
+            { type: "text", body: "Before I knew you, " },
+            { type: "highlight", body: "I barely knew myself" },
+            { type: "text", body: ". You can't fully tell who Constance is without including Vicentia — that's how " },
+            { type: "highlight", body: "you've become a part of me" },
+            { type: "text", body: ". ♡" },
           ],
-        },
-        {
-          body:
-            "TODO - write about a moment I genuinely needed you. The version of me that called you at the worst time. What you said. What you didn't say. The fact that you stayed on the line.",
         },
       ],
     },
     {
-      pullQuote: "TODO: another line - even shorter, even quieter.",
+      pullQuote: "you have no idea.",
       paragraphs: [
         {
+          body:
+            "I remember all the times you stepped up and showed up for me — carrying my problems on your head like they were yours. Like how you fought for me to come with you to Opass.",
+        },
+        {
+          body:
+            "I remember all the times I'd mess up and tell you about it, and you'd find a way for me to come out of it.",
+        },
+        {
+          body:
+            "I remember the times you trusted me with your deepest secrets and your tears — how you let me in, in the good times and the bad.",
+        },
+        {
           body: [
-            { type: "text", body: "TODO - three things I admire about you that aren't compliments anyone else would think to give you. The way you do small things. The way you handle people who don't deserve you. " },
-            { type: "highlight", body: "The thing about you nobody else sees" },
+            { type: "text", body: "It means the world to me. " },
+            { type: "highlight", body: "You have no idea." },
+          ],
+        },
+      ],
+    },
+    {
+      pullQuote: "the way you do small things.",
+      paragraphs: [
+        {
+          body:
+            "Three things I admire about you — things no one else would think to give as compliments:",
+        },
+        {
+          body: [
+            { type: "text", body: "The way you handle people who don't deserve you. The way you do " },
+            { type: "highlight", body: "small things — like stacking your morning coats on top of each other on a hanger" },
+            { type: "text", body: ". The way you update everyone close to you with your experiences." },
+          ],
+        },
+      ],
+    },
+    {
+      pullQuote: "butterflies and excitingly unrealistic moments.",
+      paragraphs: [
+        {
+          body: "What I want for you this year and beyond:",
+        },
+        {
+          body: "I wish you acquire that property you're praying for.",
+        },
+        {
+          body: [
+            { type: "text", body: "I wish to see you " },
+            { type: "highlight", body: "genuinely and unapologetically loved on" },
             { type: "text", body: "." },
           ],
         },
         {
           body:
-            "TODO - what I want for you this year and beyond. Specific. Not generic. The dream I know you'd never say out loud. The version of yourself I already see waiting for you.",
+            "I wish to see Valenshire become the new “Mr Price.” The new “Maestro.”",
         },
         {
           body:
-            "TODO - one final line. Something only the two of us would understand. Or something so plain it lands like a punch.",
+            "And I would love to hear about the new spaces you'll be entering this year — the ones with butterflies and excitingly unrealistic moments.",
+        },
+      ],
+    },
+    {
+      paragraphs: [
+        {
+          body: [
+            { type: "highlight", body: "The whole world is this very moment, today" },
+            { type: "text", body: " — enjoy it completely." },
+          ],
         },
       ],
     },
   ] as LetterSection[],
 
   signoff: "Always yours,",
-  sender: "TODO: your name",
-  postscript:
-    "TODO: a tiny P.S. - an inside joke, a song title, or a date that means something. Keep it small.",
+  sender: "Constance",
+  postscript: "",
 
   // Optional clipped photo. Set to null to hide.
-  clippedPhoto: {
-    src: null as string | null, // e.g. "/letter/us.jpg"
-    caption: "us, undated",
-  },
+  clippedPhoto: null,
 };

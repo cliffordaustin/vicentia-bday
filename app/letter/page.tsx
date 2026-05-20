@@ -289,20 +289,22 @@ export default function LetterPage() {
                 </motion.div>
 
                 {/* Post-script */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, amount: 0.8 }}
-                  transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-                  className="relative mt-12 border-t border-night/15 pt-6"
-                >
-                  <p className="font-hand text-xl text-plum/65 sm:text-2xl">
-                    <span className="mr-2 font-display text-plum/70">
-                      P.S.
-                    </span>
-                    {letter.postscript}
-                  </p>
-                </motion.div>
+                {letter.postscript && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.8 }}
+                    transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
+                    className="relative mt-12 border-t border-night/15 pt-6"
+                  >
+                    <p className="font-hand text-xl text-plum/65 sm:text-2xl">
+                      <span className="mr-2 font-display text-plum/70">
+                        P.S.
+                      </span>
+                      {letter.postscript}
+                    </p>
+                  </motion.div>
+                )}
 
                 {/* Bottom-right tiny doodle */}
                 <MarginDoodle

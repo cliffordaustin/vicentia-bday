@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ChapterNav from "../_components/ChapterNav";
@@ -171,7 +171,7 @@ function PolaroidWall({
         {photos.map((src, i) => {
           const tilt = (rand(i, 11) - 0.5) * 8; // -4° → +4°
           const lift = rand(i, 12) * 14;
-          const captionIdx = Math.floor(rand(i, 7) * POLAROID_CAPTIONS.length);
+          const caption = POLAROID_CAPTIONS[i] ?? "";
           return (
             <motion.button
               key={src}
@@ -203,7 +203,7 @@ function PolaroidWall({
                 />
               </div>
               <p className="absolute inset-x-3 bottom-2 truncate text-center font-hand text-base text-plum/70">
-                {POLAROID_CAPTIONS[captionIdx]}
+                {caption}
               </p>
             </motion.button>
           );
@@ -214,31 +214,32 @@ function PolaroidWall({
 }
 
 const POLAROID_CAPTIONS = [
-  "us, again",
-  "this one",
-  "ours.",
-  "remember?",
-  "always",
-  "the good one",
-  "keep this",
-  "soft day",
-  "loud day",
-  "forever",
-  "yours",
-  "frame it",
-  "♡",
-  "the look",
-  "best day",
+  "Last page",
+  "A cringe one",
+  "Pretty girly",
+  "Same",
+  "Cute girl era",
+  "Glow skin era",
+  "8 years old again",
+  "Brownie 😫",
+  "Who's that girl?",
+  "Same",
+  "Blurry",
+  "Okay… 🤣",
+  "Urm..",
+  "Swagger",
+  "Mercy's",
+  "Wild era",
+  "Fashionista, this?",
+  "🤣",
+  "😭",
+  "Peace out",
 ];
 
 function VideoReel({ videos }: { videos: string[] }) {
   return (
     <section className="relative z-10 mx-auto w-full max-w-7xl px-6 py-24">
       <SectionLabel kicker="Reel 2" title="The Moving Pictures" />
-
-      <p className="mx-auto mt-4 max-w-md text-center font-hand text-xl text-hot-pink">
-        tap any tile to play with sound
-      </p>
 
       <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {videos.map((src, i) => (
@@ -250,49 +251,27 @@ function VideoReel({ videos }: { videos: string[] }) {
 }
 
 function ReelTile({ src, index }: { src: string; index: number }) {
-  const ref = useRef<HTMLVideoElement | null>(null);
-  const [open, setOpen] = useState(false);
   const tilt = (rand(index, 21) - 0.5) * 3;
 
   return (
-    <>
-      <motion.button
-        type="button"
-        onClick={() => setOpen(true)}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.8, ease: EASE, delay: (index % 4) * 0.05 }}
-        whileHover={{ y: -4, scale: 1.02 }}
-        style={{ rotate: `${tilt}deg` }}
-        className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-plum/10 bg-plum/5 shadow-[0_15px_35px_-20px_rgba(31,26,23,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hot-pink"
-        aria-label={`Play clip ${index + 1}`}
-      >
-        <video
-          ref={ref}
-          src={src}
-          muted
-          loop
-          playsInline
-          autoPlay
-          preload="metadata"
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-        />
-        <span
-          aria-hidden
-          className="absolute inset-0 flex items-end justify-between bg-gradient-to-t from-plum/40 via-transparent to-transparent p-3 text-cream"
-        >
-          <span className="font-hand text-lg">clip {String(index + 1).padStart(2, "0")}</span>
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-cream/90 text-plum shadow-md opacity-0 transition group-hover:opacity-100">
-            ▶
-          </span>
-        </span>
-      </motion.button>
-
-      <AnimatePresence>
-        {open && <VideoLightbox src={src} onClose={() => setOpen(false)} />}
-      </AnimatePresence>
-    </>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: EASE, delay: (index % 4) * 0.05 }}
+      style={{ rotate: `${tilt}deg` }}
+      className="group relative aspect-4/5 overflow-hidden rounded-2xl border border-plum/10 bg-plum/5 shadow-[0_15px_35px_-20px_rgba(31,26,23,0.4)]"
+    >
+      <video
+        src={src}
+        muted
+        loop
+        playsInline
+        autoPlay
+        preload="metadata"
+        className="h-full w-full object-cover"
+      />
+    </motion.div>
   );
 }
 
@@ -455,52 +434,6 @@ function PhotoLightbox({ src, onClose }: { src: string; onClose: () => void }) {
       <img
         src={src}
         alt=""
-        onClick={(e) => e.stopPropagation()}
-        className="max-h-[88vh] max-w-[92vw] rounded-xl object-contain shadow-2xl"
-      />
-    </motion.div>,
-    document.body,
-  );
-}
-
-function VideoLightbox({ src, onClose }: { src: string; onClose: () => void }) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    // duck the page soundtrack while a clip plays with sound
-    window.dispatchEvent(new Event("music:duck"));
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-      window.dispatchEvent(new Event("music:unduck"));
-    };
-  }, [onClose]);
-
-  if (typeof document === "undefined") return null;
-
-  return createPortal(
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
-      onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-6 backdrop-blur-md"
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="Close"
-        className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
-      >
-        ✕
-      </button>
-      <video
-        src={src}
-        controls
-        autoPlay
-        playsInline
         onClick={(e) => e.stopPropagation()}
         className="max-h-[88vh] max-w-[92vw] rounded-xl object-contain shadow-2xl"
       />
