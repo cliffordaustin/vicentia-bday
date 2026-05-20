@@ -122,5 +122,5 @@ export const letter = {
   postscript: "",
 
   // Optional clipped photo. Set to null to hide.
-  clippedPhoto: null,
+  clippedPhoto: null as { src: string | null; caption: string } | null,
 };

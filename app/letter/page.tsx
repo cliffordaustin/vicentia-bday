@@ -63,7 +63,7 @@ export default function LetterPage() {
     setOpened(true);
   };
 
-  const hasPhoto = letter.clippedPhoto?.src !== undefined;
+  const photo = letter.clippedPhoto;
 
   return (
     <section className="relative flex-1 flex flex-col items-center px-6 py-24">
@@ -171,7 +171,7 @@ export default function LetterPage() {
                 <MarginDoodle type="heart" className="right-10 bottom-32" rotate={12} />
 
                 {/* Clipped photo */}
-                {hasPhoto && (
+                {photo && (
                   <motion.figure
                     initial={{ opacity: 0, scale: 0.9, rotate: -6 }}
                     animate={{ opacity: 1, scale: 1, rotate: -4 }}
@@ -182,11 +182,11 @@ export default function LetterPage() {
                       <PaperClip />
                     </span>
                     <div className="relative aspect-square w-full overflow-hidden bg-plum/5">
-                      {letter.clippedPhoto.src ? (
+                      {photo.src ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src={letter.clippedPhoto.src}
-                          alt={letter.clippedPhoto.caption}
+                          src={photo.src}
+                          alt={photo.caption}
                           className="h-full w-full object-cover"
                         />
                       ) : (
@@ -198,7 +198,7 @@ export default function LetterPage() {
                       )}
                     </div>
                     <figcaption className="mt-1 text-center font-hand text-sm text-plum/60">
-                      {letter.clippedPhoto.caption}
+                      {photo.caption}
                     </figcaption>
                   </motion.figure>
                 )}
